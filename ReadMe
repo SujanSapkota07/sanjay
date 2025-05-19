@@ -1,0 +1,41 @@
+this is the documentation for proper use of this website. this documentation is written for the people who has no idea/concept of any coding. the steps for different are are mention with proper documentation below.
+
+
+For creating a Blog.
+1. there is a directory/folder named "Blogs". create a html page there with the name that you want to take as a title.
+2. copy the content of another html on the same folder as most of the code is same and we have to reuse it and paste the code in the newly created directory.
+3. change the title as you want. you can locate it in line number 9(approximated). it should be enclosed by <title> and </title>
+4. Replace with same title on line number 351. or you can search in the file by name "<h1 class="blog-title">"
+5. replace the categoty of the content from line 374
+6. if you want to just insert the text then use text only section. you have to write all the text between <p> and </p>. if you want to change the paragraph then create another tag similarly and write into it.
+7. if you want a Section with image on left, text on right, then search for "Section with image on left, text on right". you will see this on line 397. change the link for the image from line 401 with the image you want to add there. NOTE: the image must be instide images folder and src(source) should be in the format of "images/sanjay_full_pic.jpg"
+    for example 
+        <img src="images/sanjay_full_pic.jpg"" alt="Replace this by a description that best describes the image">
+    if you want subheading then add subheading between <h2>Replace this</h2>
+    write all the text between <p></p>, you can add any number of paragraph you want.
+8. follow same instruction for Section with text on left, image on right.
+
+
+After creating blogs you may want to show this to the list of blogs. for that follow the steps below.
+
+                    <div class="blog-card">
+                        <div class="blog-img">
+                            <img src="Replace this with the image" alt="Replace this by a description that best describes the image">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar"></i> Replace this by current date</span>
+                                <span><i class="far fa-user"></i> Dr. Sapkota</span>
+                            </div>
+                            <h3 class="blog-title">
+                                <a href="blog-detail.html">Replace this by the title</a>
+                            </h3>
+                            <p class="blog-excerpt">Replace this by short description</p>
+                            <a href="for this refer below" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+ <a href="for this refer below" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+ here, the link should be placed carefully. the html page where you read the blog should be placed. it should be like Blogs/nameOfTheHtmlPage.html
+
+ make sure that you add this to beginning of the blog to make latest blog to apperar first
+

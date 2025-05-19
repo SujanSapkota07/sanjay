@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Sanjaya Sapkota - MBBS Doctor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        :root {
+            --primary: #3c82f6;
+            --secondary: #A0D2F7;
+            --accent: #2D6999;
+            --light: #F5F9FF;
+            --dark: #344055;
+            --gray: #E5E9F0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('/api/placeholder/1200/800') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 2rem;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* About Section */
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+            padding: 0 1rem;
+        }
+
+        .about-img img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 0 1rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 4rem auto 0;
+            padding: 1rem;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--gray);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 1rem 2rem;
+            position: relative;
+            width: 50%;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            top: 18px;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+            text-align: right;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::after {
+            right: -13px;
+        }
+
+        .right::after {
+            left: -13px;
+        }
+
+        .timeline-content {
+            padding: 1rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-year {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .blog-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover .blog-img img {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-date {
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-excerpt {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: var(--accent);
+        }
+
+        /* Appointment Section */
+        .appointment {
+            background-color: var(--gray);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+        }
+
+        .appointment-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            padding: 0 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            padding: 0 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .map-container {
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Social Media Section */
+        .social-media {
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .social-title {
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .social-icon.google:hover {
+            background-color: #DB4437;
+            color: white;
+        }
+
+        .social-icon.instagram:hover {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            color: white;
+        }
+
+        .social-icon.facebook:hover {
+            background-color: #3b5998;
+            color: white;
+        }
+
+        .social-icon.linkedin:hover {
+            background-color: #0077b5;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            padding: 0 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .left,
+            .right {
+                width: 100%;
+                left: 0;
+                text-align: left;
+            }
+
+            .timeline::after {
+                left: 40px;
+            }
+
+            .timeline-item::after {
+                left: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 1.5rem;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: all 0.3s ease;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container container">
+            <a href="#home" class="logo">Dr. Sapkota, MBBS</a>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#appointment">Appointment</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <img src="sanjay.png" alt="Dr. Sanjaya Sapkota" class="hero-img">
+            <h1 class="hero-title">Dr. Sanjaya Sapkota</h1>
+            <h2 class="hero-subtitle">MBBS Doctor – Currently serving in ICU care</h2>
+            <p class="hero-text">Welcome to my professional portfolio. I'm committed to providing exceptional medical
+                care and sharing valuable health insights to promote wellness in our community.</p>
+            <div>
+                <a href="#blog" class="btn">Read My Blog</a>
+                <a href="#appointment" class="btn btn-outline">Book Appointment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about-me" class="section">
+        <div class="container">
+
+            <!-- Section heading -->
+            <h2 class="section-title">About Me</h2>
+
+            <div class="about-content">
+                <!-- Portrait -->
+                <figure class="about-img" data-aos="fade-right" data-aos-duration="1000">
+                    <img src="sanjay_full_pic.jpg" width="500" height="600"
+                        alt="Portrait of Dr Sanjaya Sapkota in the ICU" />
+                </figure>
+
+                <!-- Bio -->
+                <div class="about-text" data-aos="fade-left" data-aos-duration="1000">
+                    <p>
+                        I am <strong>Dr Sanjaya Sapkota</strong>, an MBBS doctor with a passion for critical‑care
+                        medicine.
+                        Currently, I serve in the Intensive Care Unit (ICU), providing life‑saving care to patients in
+                        their most vulnerable moments.
+                    </p>
+                    <p>
+                        With extensive training in emergency medicine and critical care, I specialize in managing
+                        complex cases that require immediate intervention and continuous monitoring. My approach
+                        combines evidence‑based practice with compassionate care.
+                    </p>
+                    <p>
+                        Beyond treating patients, my mission is to educate the public about health and wellness. Through
+                        my blog and community outreach I share accurate medical information that empowers people to make
+                        informed decisions about their health.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Career Timeline -->
+            <ol class="timeline">
+                <li class="timeline-item" data-aos="fade-right" data-aos-duration="800">
+                    <div class="timeline-content">
+                        <time class="timeline-year" datetime="2023">2023&nbsp;–&nbsp;Present</time>
+                        <h3>ICU Specialist</h3>
+                        <p>Providing critical care to patients with life‑threatening conditions.</p>
+                    </div>
+                </li>
+
+                <li class="timeline-item" data-aos="fade-left" data-aos-duration="800">
+                    <div class="timeline-content">
+                        <time class="timeline-year" datetime="2020">2020&nbsp;–&nbsp;2023</time>
+                        <h3>Emergency Medicine Resident</h3>
+                        <p>Specialised training in emergency medicine and acute care.</p>
+                    </div>
+                </li>
+
+                <li class="timeline-item" data-aos="fade-right" data-aos-duration="800">
+                    <div class="timeline-content">
+                        <time class="timeline-year" datetime="2018">2018&nbsp;–&nbsp;2020</time>
+                        <h3>Medical Officer</h3>
+                        <p>Provided general medical care at a community hospital.</p>
+                    </div>
+                </li>
+
+                <li class="timeline-item" data-aos="fade-left" data-aos-duration="800">
+                    <div class="timeline-content">
+                        <time class="timeline-year" datetime="2012">2012&nbsp;–&nbsp;2018</time>
+                        <h3>MBBS Degree</h3>
+                        <p>Completed medical education with honours.</p>
+                    </div>
+                </li>
+            </ol>
+
+        </div>
+    </section>
+
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+
+    <!-- Blog Section -->
+    <section id="blog" class="section">
+        <div class="container">
+            <h2 class="section-title">Medical Blog & Articles</h2>
+            <div class="blog-grid">
+
+                <!-- this is the first blog -->
+
+                <div class="blog-card" data-aos="zoom-in" data-aos-duration="800">
+                    <div class="blog-img">
+                        <img src="https://picsum.photos/500/600" alt="Understanding ICU Care">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">May 5, 2025</div>
+                        <h3 class="blog-title">Understanding ICU Care: What Patients and Families Should Know</h3>
+                        <p class="blog-excerpt">A comprehensive guide to ICU procedures, equipment, and what to expect
+                            during an intensive care stay...</p>
+                        <a href="Blogs/Understanding ICU Care: What Patients and Families Should Know.html"
+                            class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+
+                <!-- this is the second blog -->
+
+
+                <div class="blog-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
+                    <div class="blog-img">
+                        <img src="https://picsum.photos/500/600" alt="Heart Health">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">April 22, 2025</div>
+                        <h3 class="blog-title">Heart Health: Prevention Strategies You Can Start Today</h3>
+                        <p class="blog-excerpt">Learn about simple lifestyle changes that can significantly reduce your
+                            risk of heart disease...</p>
+                        <a href="Blogs/Heart Health: Prevention Strategies You Can Start Today.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+
+                <!-- this is the third blog -->
+
+
+                <div class="blog-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="400">
+                    <div class="blog-img">
+                        <img src="https://picsum.photos/500/600" alt="COVID-19 Recovery">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">April 10, 2025</div>
+                        <h3 class="blog-title">Long COVID: Understanding Post-Viral Recovery</h3>
+                        <p class="blog-excerpt">A medical perspective on managing long-term symptoms after COVID-19
+                            infection and steps to recovery...</p>
+                        <a href="Blogs/Long COVID: Understanding Post-Viral Recovery.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+
+                <!-- the blog section ends here -->
+
+            </div>
+        </div>
+
+
+
+
+        <!-- Centered with a flexbox wrapper (inline CSS) -->
+        <br><br>
+        <div style="display:flex;justify-content:center;">
+            <a href="List_of_blogs.html" class="btn" style="
+       padding:0.75rem 1.5rem;
+       border-radius:50px;
+       font-weight:600;
+       text-decoration:none;
+       background:#0077ff;
+       color:#fff;
+     ">
+                Read&nbsp;More&nbsp;Blogs
+            </a>
+        </div>
+
+    </section>
+
+    <!-- Appointment Section -->
+    <section id="appointment" class="section appointment">
+        <div class="container">
+            <h2 class="section-title">Book an Appointment</h2>
+            <form class="appointment-form" data-aos="fade-up" data-aos-duration="1000">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" class="form-control" placeholder="Phone Number" required>
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" rows="5" placeholder="Message or Reason for Visit"
+                        required></textarea>
+                </div>
+                <button type="submit" class="btn">Request Appointment</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Location</h3>
+                            <p>City General Hospital, Medical Complex<br>Kathmandu, Nepal</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>dr.sanjaya@medicalpractice.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+977 98XXXXXXXX</p>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56516.31625948818!2d85.3001633!3d27.7054225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1981ffa8f65d%3A0x9e34308b1ba5adcd!2sKathmandu%2C%20Nepal!5e0!3m2!1sen!2sus!4v1648897457177!5m2!1sen!2sus"
+                            allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div class="contact-form" data-aos="fade-left" data-aos-duration="1000">
+                    <form action="mailto:dr.sanjaya@medicalpractice.com" method="post" enctype="text/plain">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="6" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-media">
+        <div class="container">
+            <h2 class="social-title">Connect With Me</h2>
+            <div class="social-icons">
+                <a href="#" class="social-icon google" aria-label="Google">
+                    <i class="fab fa-google"></i>
+                </a>
+                <a href="#" class="social-icon instagram" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon facebook" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-icon linkedin" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3 class="footer-title">Dr. Sanjaya Sapkota</h3>
+                    <p>MBBS Doctor specializing in ICU care, committed to providing exceptional medical service and
+                        education.</p>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#appointment">Appointment</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="footer-title">Blog Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Health Tips</a></li>
+                        <li><a href="#">Medical Research</a></li>
+                        <li><a href="#">Patient Care</a></li>
+                        <li><a href="#">Preventive Medicine</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
