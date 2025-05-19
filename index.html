@@ -677,7 +677,7 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container hero-content">
-            <img src="sanjay.png" alt="Dr. Sanjaya Sapkota" class="hero-img">
+            <img src="images/sanjay.png" alt="Dr. Sanjaya Sapkota" class="hero-img">
             <h1 class="hero-title">Dr. Sanjaya Sapkota</h1>
             <h2 class="hero-subtitle">MBBS Doctor – Currently serving in ICU care</h2>
             <p class="hero-text">Welcome to my professional portfolio. I'm committed to providing exceptional medical
@@ -690,7 +690,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about-me" class="section">
+    <section id="about" class="section">
         <div class="container">
 
             <!-- Section heading -->
@@ -699,7 +699,7 @@
             <div class="about-content">
                 <!-- Portrait -->
                 <figure class="about-img" data-aos="fade-right" data-aos-duration="1000">
-                    <img src="sanjay_full_pic.jpg" width="500" height="600"
+                    <img src="images/sanjay_full_pic.jpg" width="500" height="600"
                         alt="Portrait of Dr Sanjaya Sapkota in the ICU" />
                 </figure>
 
@@ -805,7 +805,8 @@
                         <h3 class="blog-title">Heart Health: Prevention Strategies You Can Start Today</h3>
                         <p class="blog-excerpt">Learn about simple lifestyle changes that can significantly reduce your
                             risk of heart disease...</p>
-                        <a href="Blogs/Heart Health: Prevention Strategies You Can Start Today.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        <a href="Blogs/Heart Health: Prevention Strategies You Can Start Today.html"
+                            class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -822,7 +823,8 @@
                         <h3 class="blog-title">Long COVID: Understanding Post-Viral Recovery</h3>
                         <p class="blog-excerpt">A medical perspective on managing long-term symptoms after COVID-19
                             infection and steps to recovery...</p>
-                        <a href="Blogs/Long COVID: Understanding Post-Viral Recovery.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        <a href="Blogs/Long COVID: Understanding Post-Viral Recovery.html" class="read-more">Read More
+                            <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -852,31 +854,148 @@
 
     </section>
 
+    
     <!-- Appointment Section -->
     <section id="appointment" class="section appointment">
         <div class="container">
             <h2 class="section-title">Book an Appointment</h2>
-            <form class="appointment-form" data-aos="fade-up" data-aos-duration="1000">
+
+            <form action="https://formspree.io/f/xanokqey" method="POST" class="appointment-form" data-aos="fade-up"
+                data-aos-duration="1000">
+
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Your Name" required>
+                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                 </div>
+
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Your Email" required>
+                    <input type="email" name="email" class="form-control" placeholder="Your Email" required>
                 </div>
+
                 <div class="form-group">
-                    <input type="tel" class="form-control" placeholder="Phone Number" required>
+                    <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required>
                 </div>
+
                 <div class="form-group">
-                    <input type="date" class="form-control" required>
+                    <input type="date" name="date" class="form-control" required>
                 </div>
+
                 <div class="form-group">
-                    <textarea class="form-control" rows="5" placeholder="Message or Reason for Visit"
+                    <textarea name="message" class="form-control" rows="5" placeholder="Message or Reason for Visit"
                         required></textarea>
                 </div>
+
+                <!-- optional subject line -->
+                <input type="hidden" name="_subject" value="New appointment request">
+
                 <button type="submit" class="btn">Request Appointment</button>
             </form>
         </div>
     </section>
+
+    <!-- SUCCESS MODAL (starts hidden) -->
+    <div id="success-backdrop" class="modal-backdrop" hidden>
+        <div class="modal-dialog" role="alert">
+            <h3 class="modal-title">Appointment request sent</h3>
+            <p class="modal-body">
+                Thank you! I’ve received your request and will reply shortly.
+            </p>
+            <button id="close-modal" class="btn">OK</button>
+        </div>
+    </div>
+
+    <style>
+        [hidden] {
+            display: none !important
+        }
+
+        /* modal styles … (unchanged) */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            background: rgba(0, 0, 0, .45);
+            backdrop-filter: blur(2px);
+            animation: fade-in .25s ease-out;
+            z-index: 1000
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .modal-dialog {
+            width: min(90%, 420px);
+            padding: 2rem 2.25rem;
+            background: #fff;
+            border-radius: .75rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .18);
+            text-align: center;
+            animation: slide-up .35s cubic-bezier(.23, 1, .32, 1)
+        }
+
+        @keyframes slide-up {
+            from {
+                transform: translateY(28px);
+                opacity: .4
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1
+            }
+        }
+
+        .modal-title {
+            margin: 0 0 .5rem;
+            font-size: 1.35rem;
+            font-weight: 600
+        }
+
+        .modal-body {
+            margin: 0 0 1.5rem;
+            color: #555;
+            line-height: 1.45
+        }
+
+        .modal-dialog .btn {
+            width: 100%;
+            max-width: 200px
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.querySelector('.appointment-form');
+            const modal = document.getElementById('success-backdrop');
+            const closeBt = document.getElementById('close-modal');
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const res = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (res.ok) {
+                    form.reset();
+                    modal.hidden = false;            // show modal
+                } else {
+                    alert('Oops—there was a problem. Please email me directly.');
+                }
+            });
+
+            closeBt.addEventListener('click', () => modal.hidden = true);
+            modal.addEventListener('click', e => { if (e.target === modal) modal.hidden = true; });
+        });
+    </script>
 
     <!-- Contact Section -->
     <section id="contact" class="section">
@@ -918,22 +1037,64 @@
                     </div>
                 </div>
                 <div class="contact-form" data-aos="fade-left" data-aos-duration="1000">
-                    <form action="mailto:dr.sanjaya@medicalpractice.com" method="post" enctype="text/plain">
+                    <form id="contactForm" class="contact-form">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name" required>
+                            <input type="text" name="name" class="form-control" placeholder="Your Name" required />
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Your Email" required>
+                            <input type="email" name="email" class="form-control" placeholder="Your Email" required />
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject" required>
+                            <input type="text" name="subject" class="form-control" placeholder="Subject" required />
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" rows="6" placeholder="Your Message" required></textarea>
+                            <textarea name="message" class="form-control" rows="6" placeholder="Your Message"
+                                required></textarea>
                         </div>
                         <button type="submit" class="btn">Send Message</button>
                     </form>
+
+                    <div id="formMessage" style="margin-top:1rem; font-weight:bold;"></div>
                 </div>
+
+                <script>
+                    const form = document.getElementById("contactForm");
+                    const messageDiv = document.getElementById("formMessage");
+
+                    form.addEventListener("submit", async (e) => {
+                        e.preventDefault(); // Prevent default form submit
+
+                        const formData = new FormData(form);
+                        const data = {};
+                        formData.forEach((value, key) => (data[key] = value));
+
+                        try {
+                            const response = await fetch("https://formspree.io/f/xyzwvkwe", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                    Accept: "application/json",
+                                },
+                                body: JSON.stringify(data),
+                            });
+
+                            if (response.ok) {
+                                messageDiv.style.color = "green";
+                                messageDiv.textContent = "Thank you! Your message has been sent.";
+                                form.reset();
+                            } else {
+                                const errorData = await response.json();
+                                messageDiv.style.color = "red";
+                                messageDiv.textContent =
+                                    errorData.error || "Oops! There was a problem submitting your form.";
+                            }
+                        } catch (error) {
+                            messageDiv.style.color = "red";
+                            messageDiv.textContent = "Network error: Please try again later.";
+                        }
+                    });
+                </script>
+
             </div>
         </div>
     </section>
