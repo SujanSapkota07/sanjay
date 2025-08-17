@@ -677,7 +677,7 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container hero-content">
-            <img src="images/sanjay.png" alt="Dr. Sanjaya Sapkota" class="hero-img">
+            <img src="images/sanjay.png" alt="Dr. Sanjaya Sapkota" class="hero-img" loading="lazy">
             <h1 class="hero-title">Dr. Sanjaya Sapkota</h1>
             <h2 class="hero-subtitle">MBBS Doctor – Currently serving in ICU care</h2>
             <p class="hero-text">Welcome to my professional portfolio. I'm committed to providing exceptional medical
@@ -698,13 +698,13 @@
 
             <div class="about-content">
                 <!-- Portrait -->
-                <figure class="about-img" data-aos="fade-right" data-aos-duration="1000">
-                    <img src="sanjay_full_pic.jpg" width="500" height="600"
+                <figure class="about-img" data-aos="fade-right" data-aos-duration="400">
+                    <img src="images/sanjay_full_pic.jpg" width="500" height="600" loading="lazy"
                         alt="Portrait of Dr Sanjaya Sapkota in the ICU" />
                 </figure>
 
                 <!-- Bio -->
-                <div class="about-text" data-aos="fade-left" data-aos-duration="1000">
+                <div class="about-text" data-aos="fade-left" data-aos-duration="400">
                     <p>
                         I am <strong>Dr Sanjaya Sapkota</strong>, an MBBS doctor with a passion for critical‑care
                         medicine.
@@ -780,7 +780,7 @@
 
                 <div class="blog-card" data-aos="zoom-in" data-aos-duration="800">
                     <div class="blog-img">
-                        <img src="https://picsum.photos/500/600" alt="Understanding ICU Care">
+                        <img src="https://picsum.photos/500/600" alt="Understanding ICU Care" loading="lazy">
                     </div>
                     <div class="blog-content">
                         <div class="blog-date">May 5, 2025</div>
@@ -798,7 +798,7 @@
 
                 <div class="blog-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
                     <div class="blog-img">
-                        <img src="https://picsum.photos/500/600" alt="Heart Health">
+                        <img src="https://picsum.photos/500/600" alt="Heart Health" loading="lazy">
                     </div>
                     <div class="blog-content">
                         <div class="blog-date">April 22, 2025</div>
@@ -815,7 +815,7 @@
 
                 <div class="blog-card" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="400">
                     <div class="blog-img">
-                        <img src="https://picsum.photos/500/600" alt="COVID-19 Recovery">
+                        <img src="https://picsum.photos/500/600" alt="COVID-19 Recovery" loading="lazy">
                     </div>
                     <div class="blog-content">
                         <div class="blog-date">April 10, 2025</div>
@@ -856,21 +856,21 @@
     <section id="appointment" class="section appointment">
         <div class="container">
             <h2 class="section-title">Book an Appointment</h2>
-            <form class="appointment-form" action="mailto:xyz@gmail.com?subject=New%20Appointment" method="post" enctype="text/plain" data-aos="fade-up" data-aos-duration="1000">
+            <form class="appointment-form" action="https://formspree.io/f/xanokqey" method="POST" data-aos="fade-up" data-aos-duration="1000" autocomplete="off">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Your Name" required>
+                    <input type="text" class="form-control" name="name" placeholder="Your Name" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Your Email" required>
+                    <input type="email" class="form-control" name="email" placeholder="Your Email" required>
                 </div>
                 <div class="form-group">
-                    <input type="tel" class="form-control" placeholder="Phone Number" required>
+                    <input type="tel" class="form-control" name="phone" placeholder="Phone Number" required>
                 </div>
                 <div class="form-group">
-                    <input type="date" class="form-control" required>
+                    <input type="date" class="form-control" name="date" required>
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control" rows="5" placeholder="Message or Reason for Visit"
+                    <textarea class="form-control" name="message" rows="5" placeholder="Message or Reason for Visit"
                         required></textarea>
                 </div>
                 <button type="submit" class="btn">Request Appointment</button>
@@ -890,7 +890,7 @@
                         </div>
                         <div>
                             <h3>Location</h3>
-                            <p>City General Hospital, Medical Complex<br>Kathmandu, Nepal</p>
+                            <p>Teaching Hospital, Maharajgung<br>Kathmandu, Nepal</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -899,7 +899,7 @@
                         </div>
                         <div>
                             <h3>Email</h3>
-                            <p>dr.sanjaya@medicalpractice.com</p>
+                            <p>dr.sanz1997@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -908,28 +908,28 @@
                         </div>
                         <div>
                             <h3>Phone</h3>
-                            <p>+977 98XXXXXXXX</p>
+                            <p>+977 9867970707</p>
                         </div>
                     </div>
                     <div class="map-container">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56516.31625948818!2d85.3001633!3d27.7054225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1981ffa8f65d%3A0x9e34308b1ba5adcd!2sKathmandu%2C%20Nepal!5e0!3m2!1sen!2sus!4v1648897457177!5m2!1sen!2sus"
-                            allowfullscreen="" loading="lazy"></iframe>
+                            allowfullscreen="" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
                     </div>
                 </div>
                 <div class="contact-form" data-aos="fade-left" data-aos-duration="1000">
-                    <form action="mailto:xyz@gmail.com?subject=New%20Contact%20Form%20Submission" method="post" enctype="text/plain">
+                    <form action="https://formspree.io/f/xyzwvkwe" method="POST">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name" required>
+                            <input type="text" class="form-control" name="name" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Your Email" required>
+                            <input type="email" class="form-control" name="email" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject" required>
+                            <input type="text" class="form-control" name="subject" placeholder="Subject" required>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" rows="6" placeholder="Your Message" required></textarea>
+                            <textarea class="form-control" name="message" rows="6" placeholder="Your Message" required></textarea>
                         </div>
                         <button type="submit" class="btn">Send Message</button>
                     </form>
@@ -946,13 +946,13 @@
                 <a href="#" class="social-icon google" aria-label="Google">
                     <i class="fab fa-google"></i>
                 </a>
-                <a href="#" class="social-icon instagram" aria-label="Instagram">
+                <a href="https://www.instagram.com/sanjaya_sapkota/" target="_blank" class="social-icon instagram" aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
                 <a href="#" class="social-icon facebook" aria-label="Facebook">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a href="#" class="social-icon linkedin" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/sanjaya-sapkota-72460727a/x" target="_blank" class="social-icon linkedin" aria-label="LinkedIn">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
             </div>
@@ -989,4 +989,54 @@
                 </div>
             </div>
         </div>
+        <script>
+        // Whitelist input validation: allow only safe characters
+        function isWhitelisted(value) {
+            // Allow letters, numbers, spaces, and . , ! ? @ - _
+            return /^[a-zA-Z0-9 .,!?@\-_]*$/.test(value);
+        }
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                let valid = true;
+                form.querySelectorAll('input, textarea').forEach(input => {
+                    input.setCustomValidity('');
+                    if (!isWhitelisted(input.value)) {
+                        valid = false;
+                        input.setCustomValidity('Only letters, numbers, and basic punctuation are allowed.');
+                    }
+                    // Basic checks for email
+                    if (input.type === 'email' && !/^\S+@\S+\.\S+$/.test(input.value)) {
+                        valid = false;
+                        input.setCustomValidity('Invalid email address');
+                    }
+                });
+                if (!valid) {
+                    alert('Your input contains unsafe or disallowed characters. Only letters, numbers, and . , ! ? @ - _ are allowed.');
+                    e.preventDefault();
+                    return;
+                }
+                // AJAX submit to Formspree
+                e.preventDefault();
+                const formData = new FormData(form);
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        alert('Thank you! Your message has been sent.');
+                        form.reset();
+                    } else {
+                        response.json().then(data => {
+                            alert(data.error || 'Oops! There was a problem sending your message.');
+                        });
+                    }
+                }).catch(() => {
+                    alert('Oops! There was a problem sending your message.');
+                });
+            });
+        });
+        </script>
     </footer>
